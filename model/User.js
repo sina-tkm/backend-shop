@@ -50,18 +50,19 @@ const User = sequelize.define("User", {
     allowNull: false,
     type: DataTypes.STRING,
   },
+  isActive: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
 });
 
 // Sync the model with the database
-const syncModel = async () => {
-  try {
-    await User.sync({ alter: true });
-    console.log("User model synced");
-  } catch (error) {
-    console.error("Error syncing model:", error);
-  }
-};
-
-syncModel();
+// User.sync({ alter: true })
+//   .then(() => {
+//     console.log("Synced Models");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 module.exports = User;
